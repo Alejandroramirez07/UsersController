@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor Académico</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 Gestor Académico</h1>
+            <div class="user-info" id="userInfo" style="display: none;">
+                <span id="userRole"></span>
+                <button onclick="logout()">Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <!-- Panel de Login -->
+        <div id="loginPanel" class="panel">
+            <h2>Iniciar Sesión</h2>
+            <div class="role-selector">
+                <button onclick="setRole('Professor')" class="role-btn professor">👨‍🏫 Professor</button>
+                <button onclick="setRole('Student')" class="role-btn student">👨‍🎓 Student</button>
+            </div>
+            <div id="loginForm" style="display: none;">
+                <p>Rol seleccionado: <strong id="selectedRole"></strong></p>
+                <button onclick="login()" class="login-btn">Acceder como <span id="roleName"></span></button>
+            </div>
+        </div>
+
+        <!-- Panel Principal -->
+        <div id="mainPanel" class="panel" style="display: none;">
+            <!-- Gestión de Usuarios (Solo Professor) -->
+            <div id="userManagement" class="section" style="display: none;">
+                <h2>👥 Gestión de Usuarios</h2>
+                
+                <div class="form-section">
+                    <h3>Crear Nuevo Usuario</h3>
+                    <input type="text" id="firstName" placeholder="Nombre" class="input">
+                    <input type="text" id="lastName" placeholder="Apellido" class="input">
+                    <input type="email" id="email" placeholder="Email" class="input">
+                    <input type="password" id="password" placeholder="Contraseña" class="input">
+                    <select id="userRoleSelect" class="input">
+                        <option value="Student">Student</option>
+                        <option value="Professor">Professor</option>
+                    </select>
+                    <button onclick="createUser()" class="btn primary">Crear Usuario</button>
+                </div>
+
+                <div class="actions">
+                    <button onclick="loadUsers()" class="btn secondary">🔄 Actualizar Lista</button>
+                </div>
+
+                <div id="usersList" class="list-container"></div>
+            </div>
+
+            <!-- Lista de Usuarios (Professor y Student) -->
+            <div class="section">
+                <h2>📋 Lista de Usuarios</h2>
+                <div id="allUsersList" class="list-container"></div>
+            </div>
+
+            <!-- Perfil del Usuario -->
+            <div class="section">
+                <h2>👤 Mi Perfil</h2>
+                <div id="userProfile" class="profile-container"></div>
+            </div>
+        </div>
+
+        <!-- Notificaciones -->
+        <div id="notification" class="notification" style="display: none;"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

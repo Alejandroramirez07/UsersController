@@ -1,0 +1,277 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-info span {
+    background: rgba(255,255,255,0.2);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.user-info button {
+    background: #e74c3c;
+    color: white;
+}
+
+.user-info button:hover {
+    background: #c0392b;
+}
+
+.panel {
+    padding: 30px;
+}
+
+.role-selector {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.role-btn {
+    padding: 20px 40px;
+    font-size: 18px;
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.role-btn.professor {
+    background: #3498db;
+    color: white;
+}
+
+.role-btn.student {
+    background: #2ecc71;
+    color: white;
+}
+
+.role-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.role-btn.active {
+    border-color: #f39c12;
+}
+
+.login-btn {
+    background: #9b59b6;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.login-btn:hover {
+    background: #8e44ad;
+}
+
+.section {
+    background: #f8f9fa;
+    padding: 25px;
+    margin: 20px 0;
+    border-radius: 10px;
+    border-left: 5px solid #3498db;
+}
+
+.form-section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.input:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.btn {
+    padding: 12px 24px;
+    margin: 5px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn.primary {
+    background: #3498db;
+    color: white;
+}
+
+.btn.primary:hover {
+    background: #2980b9;
+}
+
+.btn.secondary {
+    background: #95a5a6;
+    color: white;
+}
+
+.btn.secondary:hover {
+    background: #7f8c8d;
+}
+
+.btn.danger {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn.danger:hover {
+    background: #c0392b;
+}
+
+.actions {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.list-container {
+    margin-top: 20px;
+}
+
+.user-card {
+    background: white;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-left: 4px solid #3498db;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-card.professor {
+    border-left-color: #e74c3c;
+}
+
+.user-card.student {
+    border-left-color: #2ecc71;
+}
+
+.user-info-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin: 10px 0;
+}
+
+.profile-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    z-index: 1000;
+    animation: slideIn 0.3s ease;
+}
+
+.notification.success {
+    background: #27ae60;
+}
+
+.notification.error {
+    background: #e74c3c;
+}
+
+.notification.info {
+    background: #3498db;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .role-selector {
+        flex-direction: column;
+    }
+    
+    .user-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}

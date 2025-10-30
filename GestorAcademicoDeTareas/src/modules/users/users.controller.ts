@@ -44,6 +44,15 @@ export class UsersController {
     return this.usersService.findAll();
   }
 
+  @Get('role/students')
+  @ApiOperation({ summary: 'Obtener todos los estudiantes' })
+  @ApiResponse({ status: 200, description: 'Lista de estudiantes obtenida' })
+  @ApiResponse({ status: 401, description: 'No autorizado' })
+  @Roles(Role.Professor) // Only professors can see all students
+  findAllStudents() {
+  return this.usersService.findAllStudents();
+}
+
   @Get(':id')
   @ApiOperation({ summary: 'Obtener un usuario por ID' })
   @ApiResponse({ status: 200, description: 'Usuario encontrado' })

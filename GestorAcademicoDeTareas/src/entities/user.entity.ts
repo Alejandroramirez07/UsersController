@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 import { Role } from '../common/enums/roles.enum';
 import { Task } from './task.entity';
 import { Grade } from './grade.entity';
@@ -29,6 +29,12 @@ export class User {
 
   @Column({ default: true })
   isActive: boolean;
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
 
   // Un estudiante puede tener muchas tareas
   @OneToMany(() => Task, (task) => task.student)

@@ -93,13 +93,13 @@ export class UsersController {
   updateProfile(@Request() req, @Body() updateUserDto: UpdateUserDto) {
     return this.usersService.update(req.user.id, updateUserDto);
   }
-
-  @Delete(':id')
-  @ApiOperation({ summary: 'Eliminar un usuario' })
-  @ApiResponse({ status: 200, description: 'Usuario eliminado' })
-  @ApiResponse({ status: 404, description: 'Usuario no encontrado' })
-  @Roles(Role.Professor)
-  remove(@Param('id', ParseIntPipe) id: number) {
-    return this.usersService.remove(id);
-  }
+// Remove (deactivate) user
+ @Delete(':id')
+ @ApiOperation({ summary: 'Desactivar un usuario' })
+ @ApiResponse({ status: 200, description: 'Usuario desactivado exitosamente' })
+ @ApiResponse({ status: 404, description: 'Usuario no encontrado' })
+ @Roles(Role.Professor)
+ deactivate(@Param('id', ParseIntPipe) id: number) {
+  return this.usersService.deactivate(id);
+}
 }
